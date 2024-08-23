@@ -73,5 +73,8 @@ void ReverseLinkList(Node*&Head){
             curr->Next=prev;
             prev=curr;
             curr=forward;
+
+            
+            
     }
 }
