@@ -11,6 +11,7 @@ using namespace std;
 // }
 
 /// class
+
 class Stack{
     public:
     int *arr;

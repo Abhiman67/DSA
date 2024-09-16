@@ -34,9 +34,12 @@ class stack{
 // stack using ll
 
 class stack {
+
   Node*top=NULL;
   int size=0;
+ 
  void  push (int n){
+      
     Node*temp=new Node(n);
     temp->next=top;
     top=temp;
@@ -74,3 +77,8 @@ class stack {
         }
     }
 };
+
+
+
+///BALANCED PARENTHESIS
+

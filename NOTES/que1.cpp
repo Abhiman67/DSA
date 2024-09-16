@@ -19,7 +19,7 @@ class Node {
 
     Node*start,end;
     int size =0;
-
+  
    
 
     push(int n){
