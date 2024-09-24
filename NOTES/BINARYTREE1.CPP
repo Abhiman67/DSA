@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stack>
 #include<queue>
 using namespace std;
 
@@ -71,13 +72,13 @@ void levelordertraversal(Node*root){
 
 
 /// through recursive method 
- 
 
+void inordertraversal (Node*root){
     if(root==NULL) {
         return ;}
 
     inordertraversal(root->left);
-    cout << root ->data << " ";
+    cout << root ->data << " ";   
     inordertraversal(root->right);
 
 }
@@ -104,10 +105,30 @@ void postordertraversal (Node*root){
 
 
 /// through iterative way
+void iterativeInOrder(Node* root) {
+    stack<Node*> s;
+    Node* curr = root;
+
+    while (curr != nullptr || !s.empty()) {
+        // Traverse to the leftmost node and push all left nodes onto the stack
+        while (curr != nullptr) {
+            s.push(curr);
+            curr = curr->left;
+        }
+
+        // Node at the top of the stack is the leftmost node, so we visit it
+        curr = s.top();
+        s.pop();
+        cout << curr->data << " ";  // Print the node value (in-order step)
+
+        // Now we need to process the right subtree
+        curr = curr->right;
+    }
+}
 
 
+///  BUILD LEVEL WISE TREE 
 
-/// 
 void BuildLevelOrder (Node*root){
     queue<Node*>q;
     
@@ -142,6 +163,86 @@ void BuildLevelOrder (Node*root){
 
 
 }
+
+
+
+/// diameter of BT
+class Solution {
+public:
+ int m=0;
+       int height(TreeNode*root){
+            if(root==NULL){
+                return 0;
+            }
+           
+            int ln=height(root->left);
+            int rn=height(root->right);
+            m=max(m,ln+rn);
+            return 1+max(ln,rn);
+        }
+    int diameterOfBinaryTree (TreeNode*root){
+          
+           height(root);
+           return m;
+    }
+};
+
+
+/// FIND MAX HEIGHT OF TREE 
+
+int  maxheight(Node*root){
+
+    if (root==NULL) return ;
+
+
+    int ln=maxheight(root->left);
+    int rn=maxheight(root->right);
+
+    return 1+max(ln,rn);
+
+
+
+}
+
+
+/// TREE BALANCED OR NOT
+
+ class Solution {
+public:
+
+
+   int maxh(TreeNode*root){
+    if(root==NULL){
+            return true;
+        }    
+    int ln=maxh(root->left);
+    int rn=maxh(root->right);
+
+    return 1+max(ln,rn);
+
+   }
+
+
+    bool isBalanced(TreeNode* root) {
+
+        if(root==NULL){
+            return true;
+        }
+            
+        bool ln=isBalanced(root->left);
+        bool rn=isBalanced(root->right);
+      
+        bool diff = abs  (maxh(root->left) - maxh(root->right)) <=1 ;
+        
+        if(ln && rn && diff){
+            return 1;
+        }
+        else {
+            return false;
+        }
+         
+    }
+};
 
 int main (){
     Node*root=NULL;
