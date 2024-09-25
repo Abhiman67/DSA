@@ -244,6 +244,79 @@ public:
     }
 };
 
+
+/// TREE ARE IDENTICAL 
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        
+        if(p==NULL&&q==NULL){
+            return true;
+        }
+        
+        if (p==NULL || q==NULL ){
+            return false;
+        }
+        
+        if(p->val==q->val){
+            
+            return isSameTree(p->left,q->left) && isSameTree(p->right,q->right);
+        }
+        else {
+            return false;
+        }
+    }
+};
+
+/// zig zag or spiral traversal
+class Solution {
+
+    
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+       vector<vector<int>>result;
+       
+       queue<TreeNode*>q;
+       if(root==NULL){
+        return result;
+       }
+
+       
+       bool lefttoright=true;
+       q.push(root);
+
+       while(!q.empty()){
+        int size=q.size();
+        vector<int>ans(size);
+
+        for(int i=0;i<size;i++){
+            
+        TreeNode*frontnode=q.front();
+        q.pop();
+        int index;
+        if(lefttoright){
+             index=i;
+        }
+        else{
+             index=size-1-i;
+        }
+        ans[index]=frontnode->val;
+
+        if(frontnode->left){
+            q.push(frontnode->left);
+        }
+        if(frontnode->right){
+            q.push(frontnode->right);
+
+        }
+
+        }
+       result.push_back(ans);
+        lefttoright=!lefttoright;}
+        return result;
+
+       }
+};
 int main (){
     Node*root=NULL;
 
