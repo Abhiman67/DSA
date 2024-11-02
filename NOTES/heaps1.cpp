@@ -30,6 +30,10 @@ public:
             cout << arr[i] << " "; 
          }
     }
+
+    void deletefromheap(){
+         
+    }
 };
 
 int main () {
@@ -43,4 +47,6 @@ int main () {
     h.insert(54);
     h.print();
 
+    return 0;
+    
 }
