@@ -31,10 +31,35 @@ public:
          }
     }
 
-    void deletefromheap(){
-         
+    void deleteheap() {
+    if(size==0 ) {
+        cout << "heap is empty " ;
+        return;
     }
+    arr[1]=arr[size];
+    size--;
+    int i=1;
+    int lindx= 2*i;
+    int rindx=(2*i)+1;
+
+    while(i<size){
+        if(arr[i]<arr[lindx]&&arr[lindx]>arr[rindx]&&lindx<size){
+            swap(arr[i],arr[lindx]);
+            i=lindx;
+
+        }
+        else if (arr[i]<arr[rindx]&&arr[rindx]>arr[lindx]&&rindx<size){
+            swap(arr[i],arr[rindx]);
+            i=rindx;
+
+        }
+        else return;
+    }
+    
+}
 };
+
+
 
 int main () {
     
@@ -45,8 +70,12 @@ int main () {
     h.insert(53);
     h.insert(52);
     h.insert(54);
+
+    h.print();
+    cout << endl;
+    h.deleteheap();
     h.print();
 
     return 0;
     
-}
+}  
