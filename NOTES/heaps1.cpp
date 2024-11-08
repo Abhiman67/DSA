@@ -73,7 +73,7 @@ void heapify(int arr[],int i ,int n){
     if(largest !=i){
         swap(arr[largest],arr[i]);
         heapify(arr,n,largest);
-    }
+    } 
 
 }
 
@@ -107,4 +107,4 @@ int main () {
      }
  return 0;
     
-}  
+} 
