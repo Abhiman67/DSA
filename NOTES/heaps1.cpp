@@ -1,86 +1,100 @@
-/// heap is complete BT
-/// heap order property  max heap and min heap 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Heap{
+class Heap {
 public:
     int arr[1000];
-    int size=0;
-    void insert(int val){
-        size=size+1;
-        int index=size;
-        arr[index]=val;
+    int size = 0;
 
-        while(index>1){
+    // Insert into the heap (max-heap property)
+    void insert(int val) {
+        size = size + 1;
+        int index = size;
+        arr[index] = val;
 
-            int parent=index/2 ;
-            if(arr[index]>arr[parent]){
-                swap(arr[index],arr[parent]);
-
+        while (index > 1) {
+            int parent = index / 2;
+            if (arr[index] > arr[parent]) {
+                swap(arr[index], arr[parent]);
+                index = parent;
+            } else {
+                return;
             }
-            else return ;
-
         }
-
     }
 
-    void print (){
-         for(int i=1;i<=size;i++){
-            cout << arr[i] << " "; 
-         }
+    // Print the heap
+    void print() {
+        for (int i = 1; i <= size; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
 
+    // Delete the root of the heap
     void deleteheap() {
-    if(size==0 ) {
-        cout << "heap is empty " ;
-        return;
-    }
-    arr[1]=arr[size];
-    size--;
-    int i=1;
-    int lindx= 2*i;
-    int rindx=(2*i)+1;
-
-    while(i<size){
-        if(arr[i]<arr[lindx]&&arr[lindx]>arr[rindx]&&lindx<size){
-            swap(arr[i],arr[lindx]);
-            i=lindx;
-
+        if (size == 0) {
+            cout << "Heap is empty\n";
+            return;
         }
-        else if (arr[i]<arr[rindx]&&arr[rindx]>arr[lindx]&&rindx<size){
-            swap(arr[i],arr[rindx]);
-            i=rindx;
+        arr[1] = arr[size];
+        size--;
 
+        int i = 1;
+        while (true) {
+            int left = 2 * i;
+            int right = 2 * i + 1;
+            int largest = i;
+
+            if (left <= size && arr[left] > arr[largest]) {
+                largest = left;
+            }
+            if (right <= size && arr[right] > arr[largest]) {
+                largest = right;
+            }
+
+            if (largest != i) {
+                swap(arr[i], arr[largest]);
+                i = largest;
+            } else {
+                break;
+            }
         }
-        else return;
     }
-    
-}
 };
 
-void heapify(int arr[],int i ,int n){
-    int largest=i;
-    int left=2*i;
-    int right=2*i + 1;
+// Heapify function
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int left = 2 * i;
+    int right = 2 * i + 1;
 
-    if(left<n  && arr[largest]<arr[left]){
-        largest=left;
+    if (left <= n && arr[left] > arr[largest]) {
+        largest = left;
     }
-    if(right<n && arr[largest]<arr[right]){
-        largest=right;
+    if (right <= n && arr[right] > arr[largest]) {
+        largest = right;
     }
-    if(largest !=i){
-        swap(arr[largest],arr[i]);
-        heapify(arr,n,largest);
-    } 
-
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
 }
 
+// Heap sort function
+void heapsort(int arr[], int n) {
+    // Build the heap
+    for (int i = n / 2; i > 0; i--) {
+        heapify(arr, n, i);
+    }
+    // Extract elements from heap
+    for (int i = n; i > 1; i--) {
+        swap(arr[1], arr[i]);
+        heapify(arr, i - 1, 1);
+    }
+}
 
-int main () {
-    
-    
+int main() {
     Heap h;
     h.insert(50);
     h.insert(55);
@@ -88,23 +102,29 @@ int main () {
     h.insert(52);
     h.insert(54);
 
+    cout << "Heap elements after insertion:\n";
     h.print();
-    cout << endl;
+
     h.deleteheap();
+    cout << "Heap elements after deletion of root:\n";
     h.print();
 
+    int arr[6] = {-1, 54, 53, 55, 52, 50}; // -1 is a dummy value
+    int n = 5;
 
-    int arr[6]={-1,54,53,55,52,50};
-    int n= 5;
-     for(int i=n/2;i>0;i--){
-        heapify(arr,n,i);
-     }
+    // Building the heap
+    for (int i = n / 2; i > 0; i--) {
+        heapify(arr, n, i);
+    }
 
-     cout << "printing "<< endl;
-     for (int i=1;i<n;i++){
-     cout <<   arr[i] << "  ";
-     cout << "hello world";
-     }
- return 0;
-    
-} 
+    // Heap sort
+    heapsort(arr, n);
+
+    cout << "Sorted array is:\n";
+    for (int i = 1; i <= n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}

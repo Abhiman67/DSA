@@ -30,12 +30,12 @@ void maxinsert(int val){
         }
     }
 
-void delete (){
+void deete (){
     if(size==0){
         cout << "heap is empty";
         return;
     }
-    arr[1]=arr[size];f 
+    arr[1]=arr[size];
     size--;
     int i=1;
     int ldx=2*i;
