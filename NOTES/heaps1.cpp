@@ -1,4 +1,5 @@
 #include <iostream>
+#include<queue>
 using namespace std;
 
 class Heap {
@@ -126,5 +127,14 @@ int main() {
     }
     cout << endl;
 
+  /// max heap 
+  priority_queue<int> pq;
+  pq.push(55);
+
+
+  /// min heap
+  priority_queue<int,vector<int>,greater<int>> minheap;
+  
+ 
     return 0;
 }
