@@ -5,10 +5,10 @@ using namespace std;
 
 class graph {
      public:  
-     unordered_map<int,list<int>> gp;
+     unordered_map<int,list<int>  > gp;
 
      void addegge (int u,int v,bool direct){
-         //direct 0 undirected
+         //direct 0 undirected  
          //direct 1 directed 
 
          // create edge from u to v

@@ -82,7 +82,7 @@ void inordertraversal (Node*root){
     inordertraversal(root->right);
 
 }
-
+ 
 void preordertraversal (Node*root){
     if(root==NULL) {
         return ;}
@@ -339,4 +339,4 @@ int main (){
    
     return 0;
 
-}
+}   
