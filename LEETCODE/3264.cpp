@@ -1,5 +1,8 @@
 /// 30 min laga diye iske ek sort karne ki wajah se you didnt have to sort it.
 /// use heap now 
+
+/// brute force solution  0(k*n)
+
 class Solution {
 public:
     vector<int> getFinalState(vector<int>& nums, int k, int multiplier) {
@@ -13,7 +16,7 @@ public:
                 min=i;
             }
         }
-
+ 
             if (!nums.empty()) {
 
                 nums[min] *= multiplier;
@@ -23,3 +26,7 @@ public:
         return nums;
     }
 }; 
+
+/// heap soln  min heap 
+
+
