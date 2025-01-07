@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/abhishek/DSA/NOTES",
-      "program": "/Users/abhishek/DSA/NOTES/build/Debug/outDebug"
+      "cwd": "extension-output-divdikpub.cpp-runner-#1-C",
+      "program": "extension-output-divdikpub.cpp-runner-#1-C/build/Debug/outDebug"
     }
   ]
 }
