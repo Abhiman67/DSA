@@ -7,7 +7,7 @@ void PrintS(int idx,int arr[],vector<int>&ds,int n){
 
         for(auto it :ds ){
             cout << it << " ";
-         }
+         } 
 
          cout << endl ;
          return ;
@@ -31,3 +31,4 @@ int main(){
     
     return 0;
 
+}
