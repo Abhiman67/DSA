@@ -1,3 +1,9 @@
+#include<iostream>
+using namespace std;
+
+
+
+
 
 void merge(int *arr,int low,int high,int mid){
 
@@ -5,7 +11,7 @@ void merge(int *arr,int low,int high,int mid){
     int right=mid+1;
     vector<int>temp;
 
-    while(left<=right && right <=high){
+    while(left<=mid && right <=high){
         if(arr[left]<=arr[right]){
           temp.push_back(arr[left]);
           left++;
@@ -33,6 +39,7 @@ void mergesort(int *arr , int low,int high){
     if(low >=high) return ;
 
     int mid =low+high/2;
+   
     mergesort(arr,low,mid);
     mergesort(arr,mid+1,high);
     merge(arr,low,mid,high);
