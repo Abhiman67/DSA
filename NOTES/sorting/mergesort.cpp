@@ -1,10 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
-
-
 void merge(int *arr,int low,int high,int mid){
 
     int left=low;
@@ -20,16 +16,16 @@ void merge(int *arr,int low,int high,int mid){
         else{
             temp.push_back(arr[right]);
             right++;
-        }
-       
+        } 
 
         }
-         while(left<=mid){
+
+    while(left<=mid){
           temp.push_back(arr[left]);
                     left++;
 
         }
-        while(right<=high){
+    while(right<=high){
             temp.push_back(arr[right]);
                         right++;
     }
