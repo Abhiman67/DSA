@@ -23,7 +23,7 @@ using namespace std;
 class Solution {
     public:
     int dp[46];
-      int solve (int n){
+      int solve (int n){ 
     
         if(n<0) return 0;
     
@@ -43,4 +43,3 @@ class Solution {
            return solve(n);
         }
     };
-    
