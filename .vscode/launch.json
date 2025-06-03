@@ -1,15 +1,26 @@
 {
-  
   "version": "0.2.0",
-  
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
+      "name": "(lldb) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "MIMode": "lldb"
+    },
+
+    {
+      "name": "Run C++ in Terminal",
+      "type": "cppdbg",
       "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
       "args": [],
-      "cwd": "extension-output-divdikpub.cpp-runner-#1-C",
-      "program": "extension-output-divdikpub.cpp-runner-#1-C/build/Debug/outDebug"
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "MIMode": "lldb",
+      "preLaunchTask": "build-cpp",
+      "console": "integratedTerminal"
+      
     }
   ]
 }

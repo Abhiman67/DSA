@@ -2,33 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build and Run C++",
+            "label": "build-cpp",
             "type": "shell",
             "command": "g++",
             "args": [
                 "${file}",
+                "-g",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "group": "build",
-            "problemMatcher": [],
-            "detail": "Compile C++ file"
-        },
-        {
-            "label": "Run Executable",
-            "type": "shell",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "dependsOn": [
-                "Build and Run C++"
-            ],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "options": {
-                "cwd": "${fileDirname}"
-            }
+            "problemMatcher": []
         },
         {
             "type": "cppbuild",
