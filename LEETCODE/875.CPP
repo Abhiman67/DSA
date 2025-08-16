@@ -2,9 +2,9 @@ class Solution {
 public:
   
     long long hourly(vector<int>& piles, int k) {
-        long long totalhrs = 0;
-        for (int bananas : piles) {
-            totalhrs += (bananas + k - 1) / k; 
+        long long  totalhrs = 0;
+        for (int i = 0; i < piles.size(); i++) {
+            totalhrs += ceil((double)piles[i] / (double)k);
         }
         return totalhrs;
     }
@@ -23,10 +23,9 @@ public:
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
+            long long  hour=hourly(piles,mid);
 
-            
-
-            if (hourly(piles, mid) <= h) {
+            if (hour<= h) {
                 ans = mid;     
                 high = mid - 1; 
             } else {
@@ -36,6 +35,7 @@ public:
         return ans;
     }
 };
+
 
 
 // class Solution {
