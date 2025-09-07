@@ -20,7 +20,7 @@ public:
         return result;
     }
 
-    int maximum69Number (int num) {
+    int maximum69Number (int num) { 
         vector<int> store = arr(num);
 
         for(int i = 0; i < store.size(); i++) {
