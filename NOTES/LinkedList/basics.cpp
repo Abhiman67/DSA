@@ -46,13 +46,6 @@ int main(){
 
 
 
-/// insertion at head
-
-
-Node*newnode=new node(val);
-
-newnode->next=head;
-head=newnode;
 
 
 /// deletion of head
@@ -82,7 +75,7 @@ while(temp->next->next!=NULL){
 
 }
 delete temp->next ;
-temp->next=NULl 
+temp->next=NULL;
 
 return head;
 }
@@ -91,7 +84,7 @@ return head;
 
 /// DELETE KTH ELEMENT FROM LIST
 
-Node* DeletAtPosition(Node*head,int position){
+Node* DeletAtPosition(Node*head,int k){
 
     if(head==NULL) return head;
     
@@ -109,7 +102,7 @@ Node* DeletAtPosition(Node*head,int position){
 
 
 
-    while(temp->data != value){
+    while(temp->data != k){
         
         cnt++;
 
@@ -163,5 +156,71 @@ Node *RemoveElement(Node*head,int el ){
 
     }
     return head;
+    
+}
+
+
+//// INSERT AT HEAD 
+Node*newnode=new node(val);
+
+newnode->next=head;
+head=newnode;
+
+///INSERT AT LAST
+
+Node*InsetAtLast(Node*head,int val){
+
+    Node*temp=head;
+
+     while(temp->next!=NULL){
+
+     temp=temp->next;
+
+    
+    }
+    Node*newnode= new Node(val);
+    temp->next=newnode;
+
+    return head;
+    
+}
+
+
+/// insert at position 
+
+Node*InsertAtPosition(Node*head,int Pos,int val){
+
+    if(head==NULL){
+
+        if(Pos==1) return Node*newnode=new Node(val);
+        else return NULL;
+    }
+
+    if(k==1){
+
+
+       Node*newnode=new node(val);
+       newnode->next=head;
+       newnode=head;
+
+       return head;
+    }
+
+    while(temp!=NULL){
+
+        int cnt=1;
+        if(cnt==Pos-1){
+
+            Node*newnode=new node(val);
+            newnode->next=temp->next;
+            temp->next=newnode;
+            break;
+
+        }
+
+        temp=temp->next;
+
+    }
+    return head ;
     
 }
