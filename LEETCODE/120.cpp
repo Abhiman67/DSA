@@ -12,13 +12,18 @@ public:
 
         for (int i = n - 2; i >= 0; i--) {
             for (int j = i; j >= 0; j--) {
+
                 int down = triangle[i][j] + dp[i + 1][j];
                 int downRight = triangle[i][j] + dp[i + 1][j + 1];
+                
                 dp[i][j] = min(down, downRight);
             }
         }
         return dp[0][0];
     }
 };
+
+
+/// recursion + memoization
 
 
