@@ -15,7 +15,7 @@ public:
 
                 int down = triangle[i][j] + dp[i + 1][j];
                 int downRight = triangle[i][j] + dp[i + 1][j + 1];
-                
+                 
                 dp[i][j] = min(down, downRight);
             }
         }
