@@ -21,6 +21,7 @@ int main(){
         }
 
         vector<long long > copy =a;
+        sort
 
         if(copy == a || k >1) cout << "YES";
         else cout <<"NO";
