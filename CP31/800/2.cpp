@@ -12,8 +12,10 @@ int main() {
         vector<int> gas(n);
         for (int i = 0; i < n; i++) cin >> gas[i];
 
+
         gas.push_back(0);   // start
         gas.push_back(x);   // end
+        
         sort(gas.begin(), gas.end());
 
         int ans = 0;
