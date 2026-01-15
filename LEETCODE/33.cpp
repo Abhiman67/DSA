@@ -1,8 +1,4 @@
-class Solution {
-public:
-
-    int game(vector<int>& nums, int target){
-        int n = nums.size();
+  int n = nums.size();
         int low = 0, high = n - 1;
 
         while (low <= high) {
@@ -29,10 +25,4 @@ public:
             }
         }
 
-        return -1;
-    }
-
-    int search(vector<int>& nums, int target) {
-        return game(nums, target);
-    }
-};
+        return -1; 
