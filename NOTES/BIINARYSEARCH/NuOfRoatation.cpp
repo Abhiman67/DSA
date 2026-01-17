@@ -1,42 +1,39 @@
-int mini = INT_MAX ;
-int idx=0;
+int findKRotation(vector<int> &arr){
+    // Write your code here.    
+    int n=arr.size();
 
-while(low<=high){
+    int low=0;
+    int high =n-1;
+    int idx=0;
 
-    int mid= low + high /2 ;
+   while(low<=high){
 
-    if(arr[low]<= arr[high]){
+       int mid=low+(high-low)/2;
 
-        if(arr[low]<mini){
-
-            idx=low;
-            mini=arr[low];
-        }
-        break;
-    }
+       if(arr[low]<=arr[high]){
 
 
-    if(arr[low] <=arr[mid]){
+         if(arr[low]<=arr[idx])  idx=low;
+           break;
 
-       if(arr[low]<mini){
+       }
+         //left half sorted
+       if(arr[low]<=arr[mid]){
 
-        idx=low;
-        mini=arr[low];
+           if(arr[low]<arr[idx]) idx =low;
+           low=mid+1;
+    
        }
 
-    }
+       //right half sorted
 
-    if(arr[mid]<arr[high]){
+       else{
 
-      if(arr[mid]<mini){
+           if(arr[mid]<arr[idx]) idx=mid;
+           high=mid-1;
+       }
 
-        idx=mid;
-        mini=arr[mid];
-        high=mid-1;
-      }
-        
-    }
+   }
 
-    return idx;
-    
+        return idx;
 }
