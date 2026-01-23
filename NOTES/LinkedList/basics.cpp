@@ -96,12 +96,11 @@ Node* DeletAtPosition(Node*head,int k){
         return head;
 
     }
+
+
     int cnt=0;
     Node*temp=head;
     Node*prev=NULL;
-
-
-
     while(temp->data != k){
         
         cnt++;
@@ -134,8 +133,7 @@ Node *RemoveElement(Node*head,int el ){
 
         delete temp;
         return head;
-
-
+ 
     }
 
 
@@ -180,6 +178,7 @@ Node*InsetAtLast(Node*head,int val){
     }
     Node*newnode= new Node(val);
     temp->next=newnode;
+    
 
     return head;
     
@@ -194,6 +193,7 @@ Node*InsertAtPosition(Node*head,int Pos,int val){
 
         if(Pos==1) return Node*newnode=new Node(val);
         else return NULL;
+        
     }
 
     if(k==1){
