@@ -13,11 +13,11 @@ public:
 
         }
 
-      if(n==cnt) return head->next;
+        if(n==cnt) return head->next;
+       
+       
         int target=cnt-n;
-
         temp=head;
-
         cnt=0;
 
     
@@ -45,7 +45,7 @@ public:
 
         return head;
     }
-};
+};         
 
 
 /// optimied
